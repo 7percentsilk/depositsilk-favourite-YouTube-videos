@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>depositsilk - Favourite YouTube Videos</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron:wght@700&display=swap');
+        
+        body {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #ffe6ea; /* Soft pink background */
+            margin: 0;
+            padding: 20px;
+            color: #000080; /* Navy blue text, classic web color */
+        }
+        
+        .page-container {
+            max-width: 800px;
+            margin: 0 auto;
+            border: 3px solid #800080; /* Purple border */
+            background-color: #fff0f5; /* Lighter pink background */
+            padding: 15px;
+            box-shadow: 8px 8px 0 #a9a9a9; /* Old-school drop shadow */
+        }
+        
+        h1 {
+            text-align: center;
+            font-family: 'Orbitron', 'Audiowide', sans-serif;
+            color: #000000; /* Black color like in the image */
+            margin: 15px 0 25px 0;
+            padding: 10px;
+            font-size: 36px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 0px #ffffff, 4px 4px 0px #aaaaaa;
+            border-bottom: 2px dashed #800080;
+            padding-bottom: 15px;
+            -webkit-text-stroke: 1px #000000;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 20px;
+            font-style: italic;
+            font-size: 14px;
+        }
+        
+        .video-container {
+            display: table;
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 20px;
+        }
+        
+        .video-row {
+            display: table-row;
+        }
+        
+        .video-item {
+            display: table-cell;
+            width: 33.33%;
+            padding: 0 10px;
+            vertical-align: top;
+        }
+        
+        .video-frame {
+            border: 2px solid #000080; /* Navy blue */
+            padding: 3px;
+            background-color: white;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .video-frame iframe {
+            width: 100%;
+            height: 150px;
+        }
+        
+        .thumbnail-container {
+            position: relative;
+            width: 100%;
+            height: 150px;
+            overflow: hidden;
+        }
+        
+        .video-thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .custom-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            transition: opacity 0.3s;
+        }
+        
+        
+        .video-info {
+            margin-top: 5px;
+            text-align: center;
+            font-size: 12px;
+            background-color: #e6e6fa; /* Lavender */
+            border: 1px solid #a9a9a9;
+            padding: 5px;
+        }
+        
+        .video-title {
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+        
+        .video-channel {
+            font-style: italic;
+            color: #800000; /* Maroon */
+        }
+        
+        .counter {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 12px;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 11px;
+            border-top: 1px solid #800080;
+            padding-top: 10px;
+        }
+        
+        .footer img {
+            vertical-align: middle;
+            margin: 0 5px;
+        }
+        
+        /* Media queries for basic responsiveness */
+        @media (max-width: 600px) {
+            .video-row {
+                display: block;
+            }
+            .video-item {
+                display: block;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <h1>depositsilk</h1>
+        
+        <div class="intro">
+            Welcome to my personal collection of favourite YouTube videos! Last updated: April 22, 2025
+        </div>
+        
+        <div id="videos-container"></div>
+        
+        <div class="counter">
+            <p>You are visitor number: <b>1337</b></p>
+            <img src="/api/placeholder/88/31" alt="visitor counter" />
+        </div>
+        
+        <div class="footer">
+            <p>© 2025 depositsilk | Best viewed with Netscape Navigator 4.0 or higher</p>
+            <div>
+                <img src="/api/placeholder/88/31" alt="HTML Valid" />
+                <img src="/api/placeholder/88/31" alt="CSS Valid" />
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Your pre-defined list of favorite YouTube videos
+        const favoriteVideos = [
+            {
+                id: "B2pI5bB-kKg",
+                title: "Proc Fiskal - uHazsh",
+                channelTitle: "Proc Fiskal",
+                thumbnailUrl: "https://img.youtube.com/vi/B2pI5bB-kKg/maxresdefault.jpg",
+                overlayImage: "/api/placeholder/320/180" // Default placeholder if no custom image
+            },
+            {
+                id: "qaxSYBCAUpA",
+                title: "caleb stone sleeepy bitches",
+                channelTitle: "caleb stone",
+                thumbnailUrl: "https://img.youtube.com/vi/qaxSYBCAUpA/maxresdefault.jpg",
+                overlayImage: "img/2.png" // Your custom overlay image
+            },
+            {
+                id: "Dy8OuKltB0o",
+                title: "BPC 2",
+                channelTitle: "BuldozLife Tube",
+                thumbnailUrl: "https://img.youtube.com/vi/Dy8OuKltB0o/maxresdefault.jpg",
+                overlayImage: "img/3.jpg"
+            },
+            {
+                id: "2aH0zALB2sA",
+                title: "Frost Children - Elevator Music",
+                channelTitle: "Elevator Music",
+                thumbnailUrl: "https://img.youtube.com/vi/2aH0zALB2sA/maxresdefault.jpg",
+                overlayImage: "img/4.jpg"
+            },
+            {
+                id: "nnmN_sLMiKA",
+                title: "EGAL",
+                channelTitle: "BuldozLife Tube",
+                thumbnailUrl: "https://img.youtube.com/vi/nnmN_sLMiKA/maxresdefault.jpg",
+                overlayImage: "/api/placeholder/320/180"
+            },
+            {
+                id: "sUDjCUVK4U8",
+                title: "EQ, Estratosfera, Qiri - B.S.A.S. (Si Alguna Vez te Sentís Sola de Noche) (Lyric Video)",
+                channelTitle: "EQ",
+                thumbnailUrl: "https://www.youtube.com/watch?v=sUDjCUVK4U8&list=LL&index=35",
+                overlayImage: "img/6.png"
+            },
+            {
+                id: "BjFQRwLj_FQ",
+                title: "Ｐｌａｙ Ｅｍ Ｌｉｋｅ Ａｔａｒｉ",
+                channelTitle: "yung sherman",
+                thumbnailUrl: "https://www.youtube.com/watch?v=BjFQRwLj_FQ",
+                overlayImage: "img/7.png"
+            },
+            {
+                id: "FXVTfEwuD2M",
+                title: "Vassal",
+                channelTitle: "Ytem",
+                thumbnailUrl: "https://www.youtube.com/watch?v=FXVTfEwuD2M",
+                overlayImage: "img/8.png"
+            }
+
+        ];
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('videos-container');
+            
+            // Create rows with 3 videos per row
+            for (let i = 0; i < favoriteVideos.length; i += 3) {
+                const row = document.createElement('div');
+                row.className = 'video-row';
+                
+                // Add up to 3 videos in this row
+                for (let j = i; j < i + 3 && j < favoriteVideos.length; j++) {
+                    const video = favoriteVideos[j];
+                    const videoItem = document.createElement('div');
+                    videoItem.className = 'video-item';
+                    
+                    // Create HTML template with the overlay image line included
+                    videoItem.innerHTML = `
+                        <div class="video-frame" data-video-id="${video.id}">
+                            <div class="thumbnail-container">
+                                <img class="video-thumbnail" src="${video.thumbnailUrl}" alt="${video.title}" />
+                                ${video.overlayImage ? `<img class="custom-overlay" src="${video.overlayImage}" alt="" />` : ''}
+                                <div class="play-button"></div>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-title">${video.title}</div>
+                            <div class="video-channel">${video.channelTitle}</div>
+                        </div>
+                    `;
+                    
+                    row.appendChild(videoItem);
+                }
+                
+                container.appendChild(row);
+            }
+            
+            // Add click event listeners to all video frames
+            document.querySelectorAll('.video-frame').forEach(frame => {
+                frame.addEventListener('click', function() {
+                    const videoId = this.getAttribute('data-video-id');
+                    const thumbnailContainer = this.querySelector('.thumbnail-container');
+                    
+                    // Replace the thumbnail container with YouTube iframe
+                    thumbnailContainer.innerHTML = `
+                        <iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1" 
+                                title="YouTube video player" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen
+                                style="width: 100%; height: 150px; border: none;"></iframe>
+                    `;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
