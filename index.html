@@ -45,6 +45,32 @@
             font-style: italic;
             font-size: 14px;
         }
+
+        .sort-button {
+            background-color: #800080;
+            color: white;
+            padding: 8px 16px;
+            border: 2px solid #000080;
+            font-family: "Courier New", Courier, monospace;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 15px auto;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 12px;
+            box-shadow: 2px 2px 0 #a9a9a9;
+        }
+        
+        .sort-button:hover {
+            background-color: #a020f0;
+            box-shadow: 4px 4px 0 #000080;
+        }
+        
+        .sort-button.active {
+            background-color: #000080;
+            color: #ffe6ea;
+        }
         
         .video-container {
             display: table;
@@ -157,22 +183,22 @@
         <h1>depositsilk</h1>
         
         <div class="intro">
-            Welcome to my personal collection of favourite YouTube videos! Last updated: May 09, 2025
+            Welcome to my personal collection of favourite YouTube videos! Last updated: 30 May 2025
         </div>
+
+        <button class="sort-button" onclick="toggleSort()" id="sort-button">
+            🔄 Sort by Recently Added
+        </button>
         
         <div id="videos-container"></div>
         
-        <div class="counter">
+        <!-- <div class="counter">
             <p>You are visitor number: <b>1337</b></p>
-            <img src="/api/placeholder/88/31" alt="visitor counter" />
+            <img src="/api/placeholder/88/31" alt="visitor counter" /> -->
         </div>
         
         <div class="footer">
-            <p>© 2025 depositsilk | Best viewed with Netscape Navigator 4.0 or higher</p>
-            <div>
-                <img src="/api/placeholder/88/31" alt="HTML Valid" />
-                <img src="/api/placeholder/88/31" alt="CSS Valid" />
-            </div>
+            <p>© 2025 depositsilk</p>
         </div>
     </div>
 
@@ -184,113 +210,201 @@
                 title: "Proc Fiskal - uHazsh",
                 channelTitle: "Proc Fiskal",
                 thumbnailUrl: "https://img.youtube.com/vi/B2pI5bB-kKg/maxresdefault.jpg",
-                overlayImage: "/api/placeholder/320/180" // Default placeholder if no custom image
+                overlayImage: "/api/placeholder/320/180", // Default placeholder if no custom image
+                originalIndex: 0,
             },
             {
                 id: "qaxSYBCAUpA",
                 title: "caleb stone sleeepy bitches",
                 channelTitle: "caleb stone",
                 thumbnailUrl: "https://img.youtube.com/vi/qaxSYBCAUpA/maxresdefault.jpg",
-                overlayImage: "img/2.png" // Your custom overlay image
+                overlayImage: "img/2.png", // Your custom overlay image
+                originalIndex: 1,
             },
             {
                 id: "Dy8OuKltB0o",
                 title: "BPC 2",
                 channelTitle: "BuldozLife Tube",
                 thumbnailUrl: "https://img.youtube.com/vi/Dy8OuKltB0o/maxresdefault.jpg",
-                overlayImage: "img/3.jpg"
+                overlayImage: "img/3.jpg",
+                originalIndex: 2,
             },
             {
                 id: "2aH0zALB2sA",
                 title: "Frost Children - Elevator Music",
                 channelTitle: "Elevator Music",
                 thumbnailUrl: "https://img.youtube.com/vi/2aH0zALB2sA/maxresdefault.jpg",
-                overlayImage: "img/4.jpg"
+                overlayImage: "img/4.jpg",
+                originalIndex: 3,
             },
             {
                 id: "nnmN_sLMiKA",
                 title: "EGAL",
                 channelTitle: "BuldozLife Tube",
                 thumbnailUrl: "https://img.youtube.com/vi/nnmN_sLMiKA/maxresdefault.jpg",
-                overlayImage: "/api/placeholder/320/180"
+                overlayImage: "",
+                originalIndex: 4,
             },
             {
                 id: "sUDjCUVK4U8",
                 title: "EQ, Estratosfera, Qiri - B.S.A.S. (Si Alguna Vez te Sentís Sola de Noche) (Lyric Video)",
                 channelTitle: "EQ",
                 thumbnailUrl: "https://www.youtube.com/watch?v=sUDjCUVK4U8&list=LL&index=35",
-                overlayImage: "img/6.png"
+                overlayImage: "img/6.png",
+                originalIndex: 5,
             },
             {
                 id: "BjFQRwLj_FQ",
                 title: "Ｐｌａｙ Ｅｍ Ｌｉｋｅ Ａｔａｒｉ",
                 channelTitle: "yung sherman",
                 thumbnailUrl: "https://www.youtube.com/watch?v=BjFQRwLj_FQ",
-                overlayImage: "img/7.png"
+                overlayImage: "img/7.png",
+                originalIndex: 6,
             },
             {
                 id: "FXVTfEwuD2M",
                 title: "Vassal",
                 channelTitle: "Ytem",
                 thumbnailUrl: "https://www.youtube.com/watch?v=FXVTfEwuD2M",
-                overlayImage: "img/8.png"
+                overlayImage: "img/8.png",
+                originalIndex: 7,
             },
             {
                 id: "VjrSn95hw5k",
                 title: "i edited a hellofresh advert cause why not",
                 channelTitle: "dirt",
                 thumbnailUrl: "https://www.youtube.com/watch?v=VjrSn95hw5k",
-                overlayImage: "img/9.png"
+                overlayImage: "img/9.png",
+                originalIndex: 8,
             },
             {
                 id: "OQSNhk5ICTI",
                 title: "Yosemitebear Mountain Double Rainbow 1-8-10",
                 channelTitle: "Yosemitebear62",
                 thumbnailUrl: "https://www.youtube.com/watch?v=OQSNhk5ICTI",
-                overlayImage: "img/10.png"
+                overlayImage: "img/10.png",
+                originalIndex: 9,
             },
             {
                 id: "4r7wHMg5Yjg",
                 title: "The Crazy Nastyass Honey Badger (original narration by Randall)",
                 channelTitle: "czg123",
                 thumbnailUrl: "https://www.youtube.com/watch?v=4r7wHMg5Yjg&t=50s",
-                overlayImage: "img/11.png"
+                overlayImage: "img/11.png",
+                originalIndex: 10,
             },
             {
                 id: "eAPqQFWEoKg",
                 title: "Busy Beavers Build Dam Ahead of Winter | Yellowstone | BBC Earth",
                 channelTitle: "BBC Earth",
                 thumbnailUrl: "https://www.youtube.com/watch?v=eAPqQFWEoKg&list=LL&index=3",
-                overlayImage: "img/12.png"
+                overlayImage: "img/12.png",
+                originalIndex: 11,
             },
             {
                 id: "KJNke67WGi8",
                 title: "I Should Have Seen This Coming...",
                 channelTitle: "David Adamsen",
                 thumbnailUrl: "https://www.youtube.com/watch?v=KJNke67WGi8&list=LL&index=4",
-                overlayImage: "img/13.png"
+                overlayImage: "img/13.png",
+                originalIndex: 12,
             },
             {
                 id: "tSTK8W-Cs-s",
                 title: "Rebound X - Rhythm 'N' Gash (Instrumental)",
                 channelTitle: "YesItsVetzHD",
                 thumbnailUrl: "https://www.youtube.com/watch?v=tSTK8W-Cs-s&list=LL&index=5",
-                overlayImage: "img/14.png"
+                overlayImage: "img/14.png",
+                originalIndex: 13,
+            },
+            {
+                id: "BOQRKVeg1lw",
+                title: "Florida Swampfest",
+                channelTitle: "Channel 5 with Andrew Callaghan",
+                thumbnailUrl: "https://www.youtube.com/watch?v=BOQRKVeg1lw",
+                overlayImage: "img/15b.png",
+                originalIndex: 14,
+            },
+            {
+                id: "YBfiRD2pDkY",
+                title: "Grinch Makeup Tutorial after Special Treats",
+                channelTitle: "Brandi TV",
+                thumbnailUrl: "https://www.youtube.com/watch?v=YBfiRD2pDkY",
+                overlayImage: "img/16.png",
+                originalIndex: 15,
+            },
+            {
+                id: "3f9brqR5mzo",
+                title: "Ryoan-ji",
+                channelTitle: "Ian Rigg",
+                thumbnailUrl: "https://www.youtube.com/watch?v=3f9brqR5mzo",
+                overlayImage: "img/17.png",
+                originalIndex: 16,
+            },
+            {
+                id: "1NeP6P6yXRM",
+                title: "i 🤍bladee",
+                channelTitle: "poopygirl444",
+                thumbnailUrl: "https://www.youtube.com/watch?v=1NeP6P6yXRM",
+                overlayImage: "img/18.png",
+                originalIndex: 17,
+            },
+            {
+                id: "Idv68U0j4W8",
+                title: "asian girl guesses bladee songs",
+                channelTitle: "poopygirl444",
+                thumbnailUrl: "https://www.youtube.com/watch?v=Idv68U0j4W8",
+                overlayImage: "img/19.png",
+                originalIndex: 18,
+            },
+            {
+                id: "icVcyhDkG-Y",
+                title: "you know you're better than this",
+                channelTitle: "poopygirl444",
+                thumbnailUrl: "https://www.youtube.com/watch?v=icVcyhDkG-Y",
+                overlayImage: "img/20.png",
+                originalIndex: 19,
+            },
+            {
+                id: "78EZD4JIJWA",
+                title: "I took Magic Mushrooms and did Maths",
+                channelTitle: "Maggie Vail",
+                thumbnailUrl: "https://www.youtube.com/watch?v=78EZD4JIJWA",
+                overlayImage: "img/21.png",
+                originalIndex: 20,
             },
 
         ]; 
+
+        let isRecentlyAddedSort = false;
         
-        document.addEventListener('DOMContentLoaded', function() {
+        function toggleSort() {
+            const button = document.getElementById('sort-button');
+            isRecentlyAddedSort = !isRecentlyAddedSort;
+            
+            if (isRecentlyAddedSort) {
+                button.textContent = '🔄 Sort by Original Order';
+                button.classList.add('active');
+                renderVideos([...favoriteVideos].reverse()); // Recently added = reverse order (last items first)
+            } else {
+                button.textContent = '🔄 Sort by Recently Added';
+                button.classList.remove('active');
+                renderVideos(favoriteVideos); // Original order
+            }
+        }
+        
+        function renderVideos(videosArray) {
             const container = document.getElementById('videos-container');
+            container.innerHTML = ''; // Clear existing content
             
             // Create rows with 3 videos per row
-            for (let i = 0; i < favoriteVideos.length; i += 3) {
+            for (let i = 0; i < videosArray.length; i += 3) {
                 const row = document.createElement('div');
                 row.className = 'video-row';
                 
                 // Add up to 3 videos in this row
-                for (let j = i; j < i + 3 && j < favoriteVideos.length; j++) {
-                    const video = favoriteVideos[j];
+                for (let j = i; j < i + 3 && j < videosArray.length; j++) {
+                    const video = videosArray[j];
                     const videoItem = document.createElement('div');
                     videoItem.className = 'video-item';
                     
@@ -316,7 +430,7 @@
             }
             
             // Add click event listeners to all video frames
-            document.querySelectorAll('.video-frame').forEach(frame => {
+            container.querySelectorAll('.video-frame').forEach(frame => {
                 frame.addEventListener('click', function() {
                     const videoId = this.getAttribute('data-video-id');
                     const thumbnailContainer = this.querySelector('.thumbnail-container');
@@ -331,6 +445,11 @@
                     `;
                 });
             });
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initial render with original order
+            renderVideos(favoriteVideos);
         });
     </script>
 </body>
