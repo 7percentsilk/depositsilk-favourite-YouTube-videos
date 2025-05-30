@@ -1,33 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>depositsilk - Favourite YouTube Videos</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron:wght@700&display=swap');
-        
+
         body {
             font-family: "Courier New", Courier, monospace;
-            background-color: #ffe6ea; /* Soft pink background */
+            background-color: #ffe6ea;
+            /* Soft pink background */
             margin: 0;
             padding: 20px;
-            color: #000080; /* Navy blue text, classic web color */
+            color: #000080;
+            /* Navy blue text, classic web color */
         }
-        
+
         .page-container {
             max-width: 800px;
             margin: 0 auto;
-            border: 3px solid #800080; /* Purple border */
-            background-color: #fff0f5; /* Lighter pink background */
+            border: 3px solid #800080;
+            /* Purple border */
+            background-color: #fff0f5;
+            /* Lighter pink background */
             padding: 15px;
-            box-shadow: 8px 8px 0 #a9a9a9; /* Old-school drop shadow */
+            box-shadow: 8px 8px 0 #a9a9a9;
+            /* Old-school drop shadow */
         }
-        
+
         h1 {
             text-align: center;
             font-family: 'Orbitron', 'Audiowide', sans-serif;
-            color: #000000; /* Black color like in the image */
+            color: #000000;
+            /* Black color like in the image */
             margin: 15px 0 25px 0;
             padding: 10px;
             font-size: 36px;
@@ -38,7 +45,7 @@
             padding-bottom: 15px;
             -webkit-text-stroke: 1px #000000;
         }
-        
+
         .intro {
             text-align: center;
             margin-bottom: 20px;
@@ -61,61 +68,62 @@
             font-size: 12px;
             box-shadow: 2px 2px 0 #a9a9a9;
         }
-        
+
         .sort-button:hover {
             background-color: #a020f0;
             box-shadow: 4px 4px 0 #000080;
         }
-        
+
         .sort-button.active {
             background-color: #000080;
             color: #ffe6ea;
         }
-        
+
         .video-container {
             display: table;
             width: 100%;
             border-collapse: separate;
             border-spacing: 0 20px;
         }
-        
+
         .video-row {
             display: table-row;
         }
-        
+
         .video-item {
             display: table-cell;
             width: 33.33%;
             padding: 0 10px;
             vertical-align: top;
         }
-        
+
         .video-frame {
-            border: 2px solid #000080; /* Navy blue */
+            border: 2px solid #000080;
+            /* Navy blue */
             padding: 3px;
             background-color: white;
             position: relative;
             cursor: pointer;
         }
-        
+
         .video-frame iframe {
             width: 100%;
             height: 150px;
         }
-        
+
         .thumbnail-container {
             position: relative;
             width: 100%;
             height: 150px;
             overflow: hidden;
         }
-        
+
         .video-thumbnail {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
+
         .custom-overlay {
             position: absolute;
             top: 0;
@@ -125,33 +133,35 @@
             z-index: 2;
             transition: opacity 0.3s;
         }
-        
-        
+
+
         .video-info {
             margin-top: 5px;
             text-align: center;
             font-size: 12px;
-            background-color: #e6e6fa; /* Lavender */
+            background-color: #e6e6fa;
+            /* Lavender */
             border: 1px solid #a9a9a9;
             padding: 5px;
         }
-        
+
         .video-title {
             font-weight: bold;
             margin-bottom: 3px;
         }
-        
+
         .video-channel {
             font-style: italic;
-            color: #800000; /* Maroon */
+            color: #800000;
+            /* Maroon */
         }
-        
+
         .counter {
             text-align: center;
             margin-top: 30px;
             font-size: 12px;
         }
-        
+
         .footer {
             margin-top: 30px;
             text-align: center;
@@ -159,17 +169,18 @@
             border-top: 1px solid #800080;
             padding-top: 10px;
         }
-        
+
         .footer img {
             vertical-align: middle;
             margin: 0 5px;
         }
-        
+
         /* Media queries for basic responsiveness */
         @media (max-width: 600px) {
             .video-row {
                 display: block;
             }
+
             .video-item {
                 display: block;
                 width: 100%;
@@ -178,10 +189,11 @@
         }
     </style>
 </head>
+
 <body>
     <div class="page-container">
         <h1>depositsilk</h1>
-        
+
         <div class="intro">
             Welcome to my personal collection of favourite YouTube videos! Last updated: 30 May 2025
         </div>
@@ -189,17 +201,22 @@
         <button class="sort-button" onclick="toggleSort()" id="sort-button">
             🔄 Sort by Recently Added
         </button>
-        
+
+        <button class="sort-button" onclick="shuffleVideos()" id="shuffle-button">
+            🎲 Shuffle Videos
+        </button>
+
+
         <div id="videos-container"></div>
-        
+
         <!-- <div class="counter">
             <p>You are visitor number: <b>1337</b></p>
             <img src="/api/placeholder/88/31" alt="visitor counter" /> -->
-        </div>
-        
-        <div class="footer">
-            <p>© 2025 depositsilk</p>
-        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2025 depositsilk</p>
+    </div>
     </div>
 
     <script>
@@ -365,15 +382,35 @@
                 overlayImage: "img/20.png",
                 originalIndex: 19,
             },
+            {
+                id: "oQu5hOkzJDs",
+                title: "B Young - 079ME (Official Video)",
+                channelTitle: "B Young",
+                thumbnailUrl: "https://www.youtube.com/watch?v=oQu5hOkzJDs",
+                overlayImage: "img/21.png",
+                originalIndex: 20,
+            },
+            {
+                id: "oQu5hOkzJDs",
+                title: "OT Chi x #410 Skengdo x SD Muni x Big Tobz - Switch It Remix [Music Video]",
+                channelTitle: "GRM Daily",
+                thumbnailUrl: "https://www.youtube.com/watch?v=1FoqTpYsQns",
+                overlayImage: "img/22.png",
+                originalIndex: 21,
+            },
 
-        ]; 
+        ];
 
         let isRecentlyAddedSort = false;
-        
+
+        function clearActiveButtons() {
+        document.querySelectorAll('.sort-button').forEach(btn => btn.classList.remove('active'));
+    }
+
         function toggleSort() {
             const button = document.getElementById('sort-button');
             isRecentlyAddedSort = !isRecentlyAddedSort;
-            
+
             if (isRecentlyAddedSort) {
                 button.textContent = '🔄 Sort by Original Order';
                 button.classList.add('active');
@@ -383,23 +420,42 @@
                 button.classList.remove('active');
                 renderVideos(favoriteVideos); // Original order
             }
+
+            clearActiveButtons();
+            button.classList.add('active');
+
         }
-        
+
+        function shuffleVideos() {
+            const shuffled = [...favoriteVideos];
+
+            // Fisher-Yates shuffle algorithm
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+
+            clearActiveButtons(); // clear all active states first
+            document.getElementById('sort-button').classList.remove('active');
+            document.getElementById('shuffle-button').classList.add('active');
+            renderVideos(shuffled);
+        }
+
         function renderVideos(videosArray) {
             const container = document.getElementById('videos-container');
             container.innerHTML = ''; // Clear existing content
-            
+
             // Create rows with 3 videos per row
             for (let i = 0; i < videosArray.length; i += 3) {
                 const row = document.createElement('div');
                 row.className = 'video-row';
-                
+
                 // Add up to 3 videos in this row
                 for (let j = i; j < i + 3 && j < videosArray.length; j++) {
                     const video = videosArray[j];
                     const videoItem = document.createElement('div');
                     videoItem.className = 'video-item';
-                    
+
                     // Create HTML template with the overlay image line included
                     videoItem.innerHTML = `
                         <div class="video-frame" data-video-id="${video.id}">
@@ -414,19 +470,19 @@
                             <div class="video-channel">${video.channelTitle}</div>
                         </div>
                     `;
-                    
+
                     row.appendChild(videoItem);
                 }
-                
+
                 container.appendChild(row);
             }
-            
+
             // Add click event listeners to all video frames
             container.querySelectorAll('.video-frame').forEach(frame => {
-                frame.addEventListener('click', function() {
+                frame.addEventListener('click', function () {
                     const videoId = this.getAttribute('data-video-id');
                     const thumbnailContainer = this.querySelector('.thumbnail-container');
-                    
+
                     // Replace the thumbnail container with YouTube iframe
                     thumbnailContainer.innerHTML = `
                         <iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1" 
@@ -438,11 +494,12 @@
                 });
             });
         }
-        
-        document.addEventListener('DOMContentLoaded', function() {
+
+        document.addEventListener('DOMContentLoaded', function () {
             // Initial render with original order
             renderVideos(favoriteVideos);
         });
     </script>
 </body>
+
 </html>
